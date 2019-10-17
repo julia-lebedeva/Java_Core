@@ -10,8 +10,8 @@
 <VBox fx:controller="client.Controller" xmlns:fx="http://javafx.com/fxml" alignment="center">
     <TextArea fx:id="textArea" editable="false" VBox.vgrow="ALWAYS"/>
         <HBox>
-            <TextField fx:id="textField" HBox.hgrow="ALWAYS" promptText="Введите сообщение ..."/>
-            <Button text="Send"/>
+            <TextField fx:id="textField" HBox.hgrow="ALWAYS" onAction="#sendMsg" promptText="Введите сообщение ..."/>
+            <Button onAction="#sendMsg" text="Send"/>
         </HBox>
 
 </VBox>
