@@ -22,6 +22,7 @@ public class MyServer {
 
             while (true) {
                 String str = in.readUTF();
+                System.out.println("client + " + str);
                 if (str.equalsIgnoreCase("/end")) {
                     break;
                 }
@@ -29,7 +30,8 @@ public class MyServer {
             }
 
         } catch (IOException e) {
-            e.printStackTrace();
+ //           e.printStackTrace();
+            System.out.println("client disconnected");
         } finally {
             try {
                 socket.close();
