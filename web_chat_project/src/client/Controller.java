@@ -43,6 +43,7 @@ public class Controller implements Initializable {
                                 textArea.appendText((str + "\n"));  // добавляем сообщение сервера в чат
                             }
                         } catch (IOException e) {
+//                            System.out.println("server closed");
                             e.printStackTrace();
                         } finally {
                             try {
