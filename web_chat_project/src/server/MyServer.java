@@ -24,6 +24,7 @@ public class MyServer {
                 String str = in.readUTF();
                 System.out.println("client + " + str);
                 if (str.equalsIgnoreCase("/end")) {
+                    out.writeUTF("/end");
                     break;
                 }
                 out.writeUTF("echo " + str);

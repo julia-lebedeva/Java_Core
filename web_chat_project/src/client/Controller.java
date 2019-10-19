@@ -40,7 +40,7 @@ public class Controller implements Initializable {
                         try {
                             while (true) {
                                 String str = in.readUTF();
-                                System.out.println("str");
+                                textArea.appendText((str + "\n"));  // добавляем сообщение сервера в чат
                             }
                         } catch (IOException e) {
                             e.printStackTrace();
@@ -59,10 +59,14 @@ public class Controller implements Initializable {
         }
     }
 
-    public void sendMsg() {
-        textArea.appendText(textField.getText() + "\n");
-        textField.clear();
-        textField.requestFocus();
+    public void sendMsg() {                         // отправка сообщения клиента на сервер
+        try {
+            out.writeUTF(textField.getText());
+            textField.clear();
+            textField.requestFocus();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 
