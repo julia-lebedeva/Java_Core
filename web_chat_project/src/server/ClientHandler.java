@@ -28,7 +28,7 @@ public class ClientHandler {
                             if (str.equalsIgnoreCase("/end")) {
                                 break;
                             }
-                            out.writeUTF(str);
+                            serv.broadcastMsg(str);
                         }
                     } catch (IOException e) {
                         e.printStackTrace();
@@ -52,6 +52,14 @@ public class ClientHandler {
                     }
                 }
             }).start();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+// отправляем сообщение конкретному клиенту
+    public void sendMsg(String msg) {
+        try {
+            out.writeUTF(msg);
         } catch (IOException e) {
             e.printStackTrace();
         }

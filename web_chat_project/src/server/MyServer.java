@@ -34,4 +34,10 @@ public class MyServer {
             System.out.println("client disconnected");
         }
     }
+
+    public void broadcastMsg (String msg) {
+        for (ClientHandler o : clients) {
+            o.sendMsg(msg);
+        }
+    }
 }
