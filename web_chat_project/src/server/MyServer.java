@@ -5,9 +5,13 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.Vector;
 
 public class MyServer {
-    public void MyServ() {
+    private Vector<ClientHandler> clients;
+
+    public MyServer() {
+        clients = new Vector<>();
         Socket socket = null;
         ServerSocket server = null;
         try {
@@ -18,7 +22,7 @@ public class MyServer {
             while (true) {
                 socket = server.accept();
                 System.out.println("Client connected");
-                new ClientHandler(this, socket);
+                clients.add(new ClientHandler(this, socket));
             }
 
 //            DataInputStream in = new DataInputStream(socket.getInputStream());
