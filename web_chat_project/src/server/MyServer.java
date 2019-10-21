@@ -17,32 +17,13 @@ public class MyServer {
             socket = server.accept();
             System.out.println("Client connected");
 
-            DataInputStream in = new DataInputStream(socket.getInputStream());
-            DataOutputStream out = new DataOutputStream(socket.getOutputStream());
+//            DataInputStream in = new DataInputStream(socket.getInputStream());
+//            DataOutputStream out = new DataOutputStream(socket.getOutputStream());
 
-            while (true) {
-                String str = in.readUTF();
-                System.out.println("client + " + str);
-                if (str.equalsIgnoreCase("/end")) {
-                    break;
-                }
-                out.writeUTF("echo " + str);
-            }
 
         } catch (IOException e) {
  //           e.printStackTrace();
             System.out.println("client disconnected");
-        } finally {
-            try {
-                socket.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            try {
-                server.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
         }
     }
 }
